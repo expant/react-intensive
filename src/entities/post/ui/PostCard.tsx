@@ -1,11 +1,11 @@
 import styles from "./PostCard.module.css";
 
-type Props = {
+type PostCardProps = {
   title: string;
   body: string;
 };
 
-export default function PostCard({ title, body }: Props) {
+export function PostCard({ title, body }: PostCardProps) {
   return (
     <div className={styles.card}>
       <h4 className={styles.title}>{title}</h4>

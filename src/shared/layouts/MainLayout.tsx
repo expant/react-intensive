@@ -1,12 +1,13 @@
+import type { ReactElement, ReactNode } from "react";
 import styles from "./MainLayout.module.css";
 
-type Props = {
-  header: React.ReactElement;
-  footer: React.ReactElement;
-  children: React.ReactNode;
+type MainLayoutProps = {
+  header: ReactElement;
+  footer: ReactElement;
+  children: ReactNode;
 };
 
-export default function MainLayout({ header, footer, children }: Props) {
+export function MainLayout({ header, footer, children }: MainLayoutProps) {
   return (
     <div className={styles.layout}>
       {header}

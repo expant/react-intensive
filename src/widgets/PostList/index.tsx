@@ -1,7 +1,7 @@
-import styles from "./index.module.css";
-import PostCard from "../../entities/post/ui/PostCard";
+import styles from "./PostList.module.css"
+import { PostCard } from "../../entities/post/ui/PostCard";
 
-export default function PostList() {
+export function PostList() {
   const posts = [
     {
       id: 1,
