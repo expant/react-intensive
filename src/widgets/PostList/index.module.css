@@ -3,7 +3,11 @@
   flex-direction: column;
   gap: 20px;
   max-width: 600px;
-  padding: 4rem 0;
+  padding: 0;
+}
+
+.item {
+  list-style-type: none;
 }
 
 @media (max-width: 780px) {
