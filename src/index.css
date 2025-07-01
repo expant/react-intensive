@@ -2,4 +2,8 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+
+  --color-primary: #333333;
+  --color-secondary: #666666;
+  --color-border: #e0e0e0;
 }
