@@ -1,11 +1,11 @@
-import { Header } from "../widgets/LayoutHeader";
-import { Footer } from "../widgets/LayoutFooter";
-import { PostList } from "../widgets/PostList";
+import { PostList } from "../widgets/PostList/PostList";
 import { MainLayout } from "../shared/layouts/MainLayout";
+import { LayoutHeader } from "../widgets/LayoutHeader/LayoutHeader";
+import { LayoutFooter } from "../widgets/LayoutFooter/LayoutFooter";
 
 export function App() {
   return (
-    <MainLayout header={<Header />} footer={<Footer />}>
+    <MainLayout header={<LayoutHeader />} footer={<LayoutFooter />}>
       <PostList />
     </MainLayout>
   );

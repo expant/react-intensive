@@ -1,4 +1,4 @@
-import styles from "./PostList.module.css"
+import styles from "./PostList.module.css";
 import { PostCard } from "../../entities/post/ui/PostCard";
 
 export function PostList() {
