@@ -1,5 +1,5 @@
-import type { ReactElement, ReactNode } from "react";
 import styles from "./MainLayout.module.css";
+import type { ReactElement, ReactNode } from "react";
 
 type MainLayoutProps = {
   header: ReactElement;
