@@ -1,4 +1,21 @@
 .button {
   border: none;
+  background-color: transparent;
   cursor: pointer;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.light:hover {
+  background-color: #eee;
+}
+
+.dark:hover {
+  background-color: #555555;
 }

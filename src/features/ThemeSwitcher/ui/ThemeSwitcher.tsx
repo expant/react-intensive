@@ -8,5 +8,9 @@ export function ThemeSwitcher() {
 
   const icon = theme === "light" ? <LightIcon /> : <DarkIcon />;
 
-  return <Button onClick={toggleTheme}>{icon}</Button>;
+  return (
+    <Button variant="icon" className={theme} onClick={toggleTheme}>
+      {icon}
+    </Button>
+  );
 }

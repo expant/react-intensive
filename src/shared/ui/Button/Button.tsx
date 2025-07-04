@@ -2,14 +2,26 @@ import styles from "./Button.module.css";
 import type { ReactNode } from "react";
 
 type ButtonProps = {
-  children: ReactNode;
+  variant?: "icon" | "text";
   className?: string;
+  children: ReactNode;
   onClick: () => void;
 };
 
-export function Button({ children, onClick }: ButtonProps) {
+export function Button({
+  variant = "text",
+  className,
+  children,
+  onClick,
+}: ButtonProps) {
   return (
-    <button type="button" onClick={onClick} className={styles.button}>
+    <button
+      type="button"
+      onClick={onClick}
+      className={`${styles.button} ${styles[variant]} ${
+        className ? styles[className] : ""
+      }`}
+    >
       {children}
     </button>
   );
