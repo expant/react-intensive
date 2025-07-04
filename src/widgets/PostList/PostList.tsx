@@ -1,5 +1,5 @@
-import styles from "./PostList.module.css";
 import { PostCard } from "../../entities/post/ui/PostCard";
+import styles from "./PostList.module.css";
 
 export function PostList() {
   const posts = [
