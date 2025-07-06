@@ -3,9 +3,29 @@
   line-height: 1.5;
   font-weight: 400;
 
-  --color-primary: #333333;
-  --color-secondary: #666666;
-  --color-border: #e0e0e0;
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --primary-color: #2563eb;
+  --border-color: #e0e0e0;
+  
+  --button-bg: white;
+  --button-color: #000000;
+  --button-hover: #e2e8f0;
+
+  --icon-color: #333333;
+}
+
+[data-theme="dark"] {
+  --bg-color: #333333;
+  --text-color: white;
+  --primary-color: #3b82f6;
+  --border-color: #555555;
+  
+  --button-bg: #333333;
+  --button-color: white;
+  --button-hover: #555555;
+
+  --icon-color: white;
 }
 
 * {

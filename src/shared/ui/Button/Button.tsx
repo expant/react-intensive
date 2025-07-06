@@ -3,14 +3,14 @@ import type { ReactNode } from "react";
 
 type ButtonProps = {
   variant?: "icon" | "text";
-  className?: string;
+  className?: string,
   children: ReactNode;
   onClick: () => void;
 };
 
 export function Button({
   variant = "text",
-  className,
+  className = "",
   children,
   onClick,
 }: ButtonProps) {
@@ -18,9 +18,11 @@ export function Button({
     <button
       type="button"
       onClick={onClick}
-      className={`${styles.button} ${styles[variant]} ${
-        className ? styles[className] : ""
-      }`}
+      className={`
+        ${className}
+        ${styles.button} 
+        ${styles[variant]} 
+      `}
     >
       {children}
     </button>

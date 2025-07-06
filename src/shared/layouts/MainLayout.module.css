@@ -3,16 +3,6 @@
   color: var(--text-color);
 }
 
-.layout[data-theme="dark"] {
-  --bg-color: var(--color-primary);
-  --text-color: white;
-}
-
-.layout[data-theme="light"] {
-  --bg-color: white;
-  --text-color: var(--color-primary);
-}
-
 .content {
   display: grid;
   grid-template-rows: auto 1fr auto;

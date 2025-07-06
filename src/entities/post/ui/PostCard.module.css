@@ -1,33 +1,15 @@
 .card {
   padding: 16px;
   border-radius: 8px;
+  border: 1px solid var(--border-color);
 }
 
-.card.light {
-  border: 1px solid var(--color-border);
-}
-
-.card.dark {
-  border: 1px solid #555555;
-}
-
-.card.light .title {
-  color: var(--color-primary);
-}
-
-.card.dark .title {
-  color: white;
-}
-
-.card.light .content {
-  color: var(--color-secondary);
-}
-
-.card.dark .content {
-  color: white;
+.content {
+  color: var(--text-color);
 }
 
 .title {
   font-size: 1.25rem;
   margin: 0 0 8px 0;
+  color: var(--text-color);
 }

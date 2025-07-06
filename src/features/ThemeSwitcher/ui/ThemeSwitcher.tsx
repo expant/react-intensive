@@ -9,7 +9,7 @@ export function ThemeSwitcher() {
   const icon = theme === "light" ? <LightIcon /> : <DarkIcon />;
 
   return (
-    <Button variant="icon" className={theme} onClick={toggleTheme}>
+    <Button variant="icon" onClick={toggleTheme}>
       {icon}
     </Button>
   );

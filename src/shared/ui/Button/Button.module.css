@@ -2,6 +2,12 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  transition: all .2s;
+  color: var(--button-color);
+}
+
+.button:hover {
+  background-color: var(--button-hover);
 }
 
 .icon {
@@ -12,10 +18,8 @@
   border-radius: 50%;
 }
 
-.light:hover {
-  background-color: #eee;
-}
-
-.dark:hover {
-  background-color: #555555;
+.text {
+  font-size: 18px;
+  padding: 5px 10px;
+  border-radius: 10px;
 }
