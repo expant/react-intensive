@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Modal } from "../../shared/ui/Modal/Modal";
-import { Button } from "../../shared/ui/Button/Button";
-import { ThemeSwitcher } from "../../features/ThemeSwitcher/ui/ThemeSwitcher";
+import { Modal } from "@/shared/ui/Modal/Modal";
+import { Button } from "@/shared/ui/Button/Button";
+import { ThemeSwitcher } from "@/features/ThemeSwitcher/ui/ThemeSwitcher";
 import styles from "./LayoutHeader.module.css";
 
 export function LayoutHeader() {
@@ -14,7 +14,7 @@ export function LayoutHeader() {
         <Button onClick={() => setIsModalOpen(true)}>О проекте</Button>
         <ThemeSwitcher />
       </div>
-      { isModalOpen && <Modal onClose={() => setIsModalOpen(false)} /> }
+      {isModalOpen && <Modal onClose={() => setIsModalOpen(false)} />}
     </header>
   );
 }

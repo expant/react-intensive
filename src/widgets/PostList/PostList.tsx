@@ -1,5 +1,5 @@
-import { PostCard } from "../../entities/post/ui/PostCard";
-import { mockPosts } from "../../shared/mocks/posts";
+import { PostCard } from "@/entities/post/ui/PostCard";
+import { mockPosts } from "@/shared/mocks/posts";
 import styles from "./PostList.module.css";
 
 export function PostList() {

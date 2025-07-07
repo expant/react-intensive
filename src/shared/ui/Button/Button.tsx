@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 type ButtonProps = {
   variant?: "icon" | "text";
-  className?: string,
+  className?: string;
   children: ReactNode;
   onClick: () => void;
 };
