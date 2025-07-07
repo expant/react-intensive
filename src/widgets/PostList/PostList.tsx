@@ -1,38 +1,11 @@
-import styles from "./PostList.module.css";
 import { PostCard } from "../../entities/post/ui/PostCard";
+import { mockPosts } from "../../shared/mocks/posts";
+import styles from "./PostList.module.css";
 
 export function PostList() {
-  const posts = [
-    {
-      id: 1,
-      title: "Как начать изучать React в 2025 году",
-      body: "React остается одним из самых популярных библиотек для фронтенд-разработки...",
-    },
-    {
-      id: 2,
-      title: "Лучшие практики TypeScript для больших проектов",
-      body: "TypeScript помогает избежать множества ошибок типизации...",
-    },
-    {
-      id: 3,
-      title: "Полное руководство по CSS Grid",
-      body: "CSS Grid Layout предлагает мощную систему для создания сложных макетов...",
-    },
-    {
-      id: 4,
-      title: "Оптимизация производительности в Vue 3",
-      body: "Новые методы оптимизации рендеринга во Vue 3 позволяют добиться...",
-    },
-    {
-      id: 5,
-      title: "State-менеджмент без Redux: новые подходы",
-      body: "Обзор библиотек для управления состоянием: Zustand, Jotai и Signal...",
-    },
-  ];
-
   return (
     <ul className={styles.list}>
-      {posts.map((post) => (
+      {mockPosts.map((post) => (
         <li key={post.id} className={styles.item}>
           <PostCard {...post} />
         </li>
