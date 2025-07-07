@@ -24,4 +24,4 @@ export const mockPosts = [
     title: "State-менеджмент без Redux: новые подходы",
     body: "Обзор библиотек для управления состоянием: Zustand, Jotai и Signal...",
   },
-]
+];
