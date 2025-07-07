@@ -1,0 +1,25 @@
+.layout {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.content {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: auto;
+  justify-content: center;
+  min-height: 100vh;
+  height: 100%;
+}
+
+@media (max-width: 780px) {
+  .layout {
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .layout {
+    padding: 0 1rem;
+  }
+}
