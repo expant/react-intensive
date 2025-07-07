@@ -1,4 +1,3 @@
-import { useTheme } from "../../../shared/lib/theme/useTheme";
 import styles from "./PostCard.module.css";
 
 type PostCardProps = {
@@ -7,10 +6,8 @@ type PostCardProps = {
 };
 
 export function PostCard({ title, body }: PostCardProps) {
-  const { theme } = useTheme();
-
   return (
-    <div className={`${styles.card} ${styles[theme]}`}>
+    <div className={styles.card}>
       <h4 className={styles.title}>{title}</h4>
       <p className={styles.content}>{body}</p>
     </div>
