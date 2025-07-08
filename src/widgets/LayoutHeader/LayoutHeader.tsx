@@ -14,7 +14,25 @@ export function LayoutHeader() {
         <Button onClick={() => setIsModalOpen(true)}>О проекте</Button>
         <ThemeSwitcher />
       </div>
-      {isModalOpen && <Modal onClose={() => setIsModalOpen(false)} />}
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <Modal.Header>
+          <h2>О проекте</h2>
+        </Modal.Header>
+        <Modal.Body>
+          <p>
+            Приложение для просмотра постов и комментариев, основанное на
+            публичном API
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            className={styles.btnModal}
+            onClick={() => setIsModalOpen(false)}
+          >
+            Понятно
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </header>
   );
 }
