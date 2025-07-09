@@ -6,10 +6,9 @@
 .content {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: auto;
-  justify-content: center;
+  max-width: 700px;
   min-height: 100vh;
-  height: 100%;
+  margin: 0 auto;
 }
 
 @media (max-width: 780px) {
