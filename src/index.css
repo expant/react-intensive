@@ -8,7 +8,7 @@
   --primary-color: #2563eb;
   --secondary-color: #f1f5f9;
   --border-color: #e0e0e0;
-  
+
   --button-bg: white;
   --button-color: #000000;
   --button-hover: #e2e8f0;
@@ -22,7 +22,7 @@
   --primary-color: #3b82f6;
   --secondary-color: #475569;
   --border-color: #555555;
-  
+
   --button-bg: #333333;
   --button-color: white;
   --button-hover: #555555;
@@ -38,4 +38,8 @@
 
 li {
   list-style-type: none;
+}
+
+input:focus {
+  outline: none;
 }
