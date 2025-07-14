@@ -8,9 +8,10 @@ export function PostList() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1000);
+    setLoading(true);
+    const timer = setTimeout(() => setLoading(false), 500);
     return () => clearTimeout(timer);
-  }, []);
+  }, [lengthPostTitle]);
 
   return (
     <>
