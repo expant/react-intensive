@@ -1,18 +1,30 @@
 import type { ChangeEvent } from "react";
-import type { PostLengthFilterProps } from "./types";
+import { validateInput } from "../lib/validateInput";
+import type { LengthFilter, LengthFilterType } from "../types";
 import styles from "./PostLengthFilter.module.css";
+
+export type PostLengthFilterProps = {
+  length: LengthFilter;
+  onChange: (length: LengthFilter) => void;
+};
 
 export function PostLengthFilter({ length, onChange }: PostLengthFilterProps) {
   const handleChange =
-    (type: "min" | "max") => (e: ChangeEvent<HTMLInputElement>) => {
-      const number = Number(e.target.value);
+    (type: LengthFilterType) => (e: ChangeEvent<HTMLInputElement>) => {
+      const { value } = e.target;
+      const validation = validateInput({ value });
 
-      if (!number) {
+      if (validation.isValid) {
+        onChange({ ...length, [type]: validation.validatedValue });
         return;
       }
 
-      onChange({ ...length, [type]: number });
+      if (validation.error === "empty") {
+        onChange({ ...length, [type]: undefined });
+      }
     };
+
+  const handleValue = (type: LengthFilterType) => length[type] ?? "";
 
   return (
     <div className={styles.filterContainer}>
@@ -21,14 +33,16 @@ export function PostLengthFilter({ length, onChange }: PostLengthFilterProps) {
         <input
           className={styles.filterField}
           type="text"
-          onChange={handleChange("min")}
           placeholder="min"
+          value={handleValue("min")}
+          onChange={handleChange("min")}
         />
         <input
           className={styles.filterField}
           type="text"
-          onChange={handleChange("max")}
           placeholder="max"
+          value={handleValue("max")}
+          onChange={handleChange("max")}
         />
       </div>
     </div>

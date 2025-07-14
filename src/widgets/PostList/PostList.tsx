@@ -5,10 +5,11 @@ import { withLoading } from "@/shared/lib/hoc/withLoading";
 import { CommentList } from "../CommentList/ui/CommentList";
 import { filterByLength } from "@/features/PostLengthFilter/lib/filterByLength";
 import { PostLengthFilter } from "@/features/PostLengthFilter/ui/PostLengthFilter";
+import type { LengthFilter } from "@/features/PostLengthFilter/types";
 import styles from "./PostList.module.css";
 
 function PostList() {
-  const [lengthPostTitle, setlengthPostTitle] = useState({ min: 0, max: 100 });
+  const [lengthPostTitle, setLengthPostTitle] = useState<LengthFilter>({});
 
   const filteredPosts = filterByLength({
     posts: mockPosts,
@@ -31,7 +32,7 @@ function PostList() {
     <>
       <PostLengthFilter
         length={lengthPostTitle}
-        onChange={setlengthPostTitle}
+        onChange={setLengthPostTitle}
       />
       <ul className={styles.list}>{postList}</ul>
     </>
