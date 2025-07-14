@@ -1,32 +1,16 @@
-import { useMemo, useState } from "react";
-import { PostCard } from "@/entities/post/ui/PostCard";
-import { mockPosts } from "@/shared/mocks/posts";
-import { withLoading } from "@/shared/lib/hoc/withLoading";
-import { CommentList } from "../CommentList/ui/CommentList";
-import { filterByLength } from "@/features/PostLengthFilter/lib/filterByLength";
+import { useState, useEffect } from "react";
+import { PostListContentWithLoading } from "./PostListContent";
 import { PostLengthFilter } from "@/features/PostLengthFilter/ui/PostLengthFilter";
 import type { LengthFilter } from "@/features/PostLengthFilter/types";
-import styles from "./PostList.module.css";
 
-function PostList() {
+export function PostList() {
   const [lengthPostTitle, setLengthPostTitle] = useState<LengthFilter>({});
+  const [loading, setLoading] = useState(true);
 
-  const filteredPosts = filterByLength({
-    posts: mockPosts,
-    ...lengthPostTitle,
-  });
-
-  const postList = useMemo(
-    () =>
-      filteredPosts.map((post) => (
-        <li key={post.id} className={styles.item}>
-          <PostCard {...post}>
-            <CommentList postId={post.id} />
-          </PostCard>
-        </li>
-      )),
-    [filteredPosts]
-  );
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
@@ -34,9 +18,7 @@ function PostList() {
         length={lengthPostTitle}
         onChange={setLengthPostTitle}
       />
-      <ul className={styles.list}>{postList}</ul>
+      <PostListContentWithLoading loading={loading} props={lengthPostTitle} />
     </>
   );
 }
-
-export const PostListWithLoading = withLoading(PostList);
