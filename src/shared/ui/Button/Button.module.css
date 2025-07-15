@@ -1,0 +1,29 @@
+.button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--button-color);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.icon:hover {
+  background-color: var(--button-hover);
+}
+
+.text {
+  font-size: 18px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.text:hover {
+  color: var(--primary-color);
+}

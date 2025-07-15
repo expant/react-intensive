@@ -1,3 +1,15 @@
-export default function App() {
-  return <></>;
+import { MainLayout } from "@/shared/layouts/MainLayout";
+import { ThemeProvider } from "@/shared/lib/theme/ThemeProvider";
+import { LayoutHeader } from "@/widgets/LayoutHeader/LayoutHeader";
+import { LayoutFooter } from "@/widgets/LayoutFooter/LayoutFooter";
+import { PostList } from "@/widgets/PostList/PostList";
+
+export function App() {
+  return (
+    <ThemeProvider>
+      <MainLayout header={<LayoutHeader />} footer={<LayoutFooter />}>
+        <PostList />
+      </MainLayout>
+    </ThemeProvider>
+  );
 }

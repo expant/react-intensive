@@ -2,4 +2,44 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --primary-color: #2563eb;
+  --secondary-color: #f1f5f9;
+  --border-color: #e0e0e0;
+
+  --button-bg: white;
+  --button-color: #000000;
+  --button-hover: #e2e8f0;
+
+  --icon-color: #333333;
+}
+
+[data-theme="dark"] {
+  --bg-color: #333333;
+  --text-color: white;
+  --primary-color: #3b82f6;
+  --secondary-color: #475569;
+  --border-color: #555555;
+
+  --button-bg: #333333;
+  --button-color: white;
+  --button-hover: #555555;
+
+  --icon-color: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+input:focus {
+  outline: none;
 }
