@@ -1,17 +1,19 @@
-import type { ReactNode } from "react";
+import { NavLink } from "react-router-dom";
+import type { PostCardProps } from "./types";
 import styles from "./PostCard.module.css";
 
-type PostCardProps = {
-  title: string;
-  body: string;
-  children: ReactNode
-};
+export function PostCard({ post, children }: PostCardProps) {
+  const { id, title, body, author } = post;
 
-export function PostCard({ title, body, children }: PostCardProps) {
   return (
     <div className={styles.card}>
-      <h4 className={styles.title}>{title}</h4>
+      <NavLink className={styles.title} to={`/posts/${id}`}>
+        <h4>{title}</h4>
+      </NavLink>
       <p className={styles.content}>{body}</p>
+      <NavLink className={styles.author} to={`/users/${id}`}>
+        {author}
+      </NavLink>
       {children}
     </div>
   );

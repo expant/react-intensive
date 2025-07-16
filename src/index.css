@@ -9,6 +9,11 @@
   --secondary-color: #f1f5f9;
   --border-color: #e0e0e0;
 
+  --green-primary: #16a34a;
+  --green-secondary: #86efac;
+  --green-dark: #15803d;
+  --green-light: #dcfce7;
+
   --button-bg: white;
   --button-color: #000000;
   --button-hover: #e2e8f0;
@@ -22,6 +27,11 @@
   --primary-color: #3b82f6;
   --secondary-color: #475569;
   --border-color: #555555;
+
+  --green-primary: #22c55e;
+  --green-secondary: #4ade80;
+  --green-dark: #166534;
+  --green-light: #bbf7d0;
 
   --button-bg: #333333;
   --button-color: white;

@@ -1,0 +1,32 @@
+.todosTitle {
+  margin: 20px 0;
+}
+
+.todosList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.todoItem {
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.activeContainer .todoItem {
+  background-color: var(--secondary-color);
+}
+
+.activeContainer .todoItem:hover {
+  background-color: var(--button-hover);
+}
+
+.completedContainer .todoItem {
+  background-color: var(--green-light);
+  color: var(--green-primary);
+}
+
+.completedContainer .todoItem:hover {
+  color: var(--text-color);
+}
