@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { filterByLength } from "@/features/PostLengthFilter/lib/filterByLength";
 import { mockPosts } from "@/shared/mocks/posts";
 import type { Post } from "@/entities/post/model/types";
-import type { LengthFilter } from "@/features/PostLengthFilter/types";
+import type { LengthFilter } from "@/features/PostLengthFilter/model/types";
 
 export function usePosts() {
   const [loading, setLoading] = useState(true);
@@ -12,7 +12,8 @@ export function usePosts() {
   useEffect(() => {
     setLoading(true);
     const timer = setTimeout(() => {
-      setFilteredPosts(filterByLength({ posts: mockPosts, ...filters }));
+      const filtered = filterByLength(mockPosts, filters.min, filters.max);
+      setFilteredPosts(filtered);
       setLoading(false);
     }, 500);
 

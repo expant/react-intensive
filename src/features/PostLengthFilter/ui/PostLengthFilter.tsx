@@ -1,6 +1,6 @@
 import type { ChangeEvent } from "react";
 import { validateInput } from "../lib/validateInput";
-import type { LengthFilter, LengthFilterType } from "../types";
+import type { LengthFilter, LengthFilterType } from "../model/types";
 import styles from "./PostLengthFilter.module.css";
 
 export type PostLengthFilterProps = {
