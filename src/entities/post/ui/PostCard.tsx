@@ -1,13 +1,9 @@
-import type { ReactNode } from "react";
+import type { PostCardProps } from "../model/types";
 import styles from "./PostCard.module.css";
 
-type PostCardProps = {
-  title: string;
-  body: string;
-  children: ReactNode
-};
+export function PostCard({ post, children }: PostCardProps) {
+  const { title, body } = post;
 
-export function PostCard({ title, body, children }: PostCardProps) {
   return (
     <div className={styles.card}>
       <h4 className={styles.title}>{title}</h4>

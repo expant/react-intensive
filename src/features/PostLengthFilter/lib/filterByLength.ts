@@ -1,8 +1,4 @@
-type Post = {
-  id: number;
-  title: string;
-  body: string;
-};
+import type { Post } from "@/entities/post/model/types";
 
 type FilterByLengthParams = {
   posts: Post[];

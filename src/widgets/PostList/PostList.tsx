@@ -1,25 +1,25 @@
-import { useState, useEffect } from "react";
-import { PostListContentWithLoading } from "./PostListContent";
-import { PostLengthFilter } from "@/features/PostLengthFilter/ui/PostLengthFilter";
-import type { LengthFilter } from "@/features/PostLengthFilter/types";
+import { useMemo } from "react";
+import { PostCard } from "@/entities/post/ui/PostCard";
+import { CommentList } from "@/widgets/CommentList/ui/CommentList";
+import type { Post } from "@/entities/post/model/types";
+import styles from "./PostList.module.css";
 
-export function PostList() {
-  const [lengthPostTitle, setLengthPostTitle] = useState<LengthFilter>({});
-  const [loading, setLoading] = useState(true);
+type PostListProps = {
+  posts: Post[];
+};
 
-  useEffect(() => {
-    setLoading(true);
-    const timer = setTimeout(() => setLoading(false), 500);
-    return () => clearTimeout(timer);
-  }, [lengthPostTitle]);
-
-  return (
-    <>
-      <PostLengthFilter
-        length={lengthPostTitle}
-        onChange={setLengthPostTitle}
-      />
-      <PostListContentWithLoading loading={loading} props={lengthPostTitle} />
-    </>
+export function PostList({ posts }: PostListProps) {
+  const postItems = useMemo(
+    () =>
+      posts.map((post) => (
+        <li key={post.id} className={styles.item}>
+          <PostCard post={post}>
+            <CommentList postId={post.id} />
+          </PostCard>
+        </li>
+      )),
+    [posts]
   );
+
+  return <ul className={styles.list}>{postItems}</ul>;
 }
