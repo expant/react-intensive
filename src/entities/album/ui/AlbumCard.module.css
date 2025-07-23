@@ -1,0 +1,19 @@
+.albumItem {
+  aspect-ratio: 2 / 1;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  color: var(--text-color);
+  border-radius: 5px;
+  background-color: var(--secondary-color);
+  text-decoration: none;
+  transition: background-color 0.1s;
+}
+
+.albumItem:hover {
+  background-color: var(--button-hover);
+}
