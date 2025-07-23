@@ -6,13 +6,7 @@ type Post = {
   author: string;
 };
 
-type FilterByLengthParams = {
-  posts: Post[];
-  min?: number;
-  max?: number;
-};
-
-export const filterByLength = ({ posts, min, max }: FilterByLengthParams) =>
+export const filterByLength = (posts: Post[], min?: number, max?: number) =>
   posts.filter((post) => {
     const length = post.title.length;
     const meetsMin = min === undefined || length >= min;

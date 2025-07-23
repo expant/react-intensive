@@ -1,8 +1,6 @@
-import { useMemo } from "react";
 import { PostCard } from "@/entities/post/ui/PostCard";
 import { CommentList } from "../CommentList/ui/CommentList";
-// import { withLoading } from "@/shared/lib/hoc/withLoading";
-import type { Post } from "@/entities/post/ui/types";
+import type { Post } from "@/entities/post/model/types";
 import styles from "./PostList.module.css";
 
 type PostListProps = {
@@ -10,19 +8,15 @@ type PostListProps = {
 };
 
 export function PostList({ posts }: PostListProps) {
-  const postList = useMemo(
-    () =>
-      posts.map((post) => (
+  return (
+    <ul className={styles.list}>
+      {posts.map((post) => (
         <li key={post.id} className={styles.item}>
           <PostCard post={post}>
             <CommentList postId={post.id} />
           </PostCard>
         </li>
-      )),
-    [posts]
+      ))}
+    </ul>
   );
-
-  return <ul className={styles.list}>{postList}</ul>;
 }
-
-// export const PostListWithLoading = withLoading(PostList);

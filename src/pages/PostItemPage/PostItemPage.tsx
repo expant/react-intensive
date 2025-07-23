@@ -3,6 +3,7 @@ import { Button } from "@/shared/ui/Button/Button";
 import { PostCard } from "@/entities/post/ui/PostCard";
 import { CommentList } from "@/widgets/CommentList/ui/CommentList";
 import { mockPosts } from "@/shared/mocks/posts";
+import styles from "./PostItemPage.module.css";
 
 export function PostItemPage() {
   const navigate = useNavigate();
@@ -20,8 +21,9 @@ export function PostItemPage() {
       <Button
         variant="text"
         onClick={handleGoBack}
+        className={styles.goBackBtn}
       >
-        Назад к альбомам
+        Назад
       </Button>
       <PostCard post={post}>
         <CommentList postId={post.id} />
