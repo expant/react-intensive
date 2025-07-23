@@ -1,15 +1,13 @@
-import { useParams } from "react-router-dom";
-import { TodoList } from "@/widgets/TodoList/TodoList";
-import { mockTodos } from "@/shared/mocks/todos";
-import { filterById } from "@/shared/lib/data/filterById";
+import { useTodos } from "@/features/TodoList/model/hooks/useTodos";
+import { TodoList } from "@/widgets/TodoList/ui/TodoList";
 
 export function UserTodosPage() {
-  const { id: userId } = useParams<{ id: string }>();
-  const filteredTodos = filterById(mockTodos, "userId", Number(userId));
+  const { activeTodos, completedTodos } = useTodos();
 
   return (
     <div>
-      <TodoList todos={filteredTodos} />
+      <TodoList todos={activeTodos} type="active" />
+      <TodoList todos={completedTodos} type="completed" />
     </div>
   );
 }
