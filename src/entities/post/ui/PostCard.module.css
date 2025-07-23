@@ -1,0 +1,15 @@
+.card {
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.content {
+  color: var(--text-color);
+}
+
+.title {
+  font-size: 1.25rem;
+  margin: 0 0 8px 0;
+  color: var(--text-color);
+}

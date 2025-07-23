@@ -1,0 +1,19 @@
+.commentSection {
+  margin-top: 30px;
+}
+
+.btnTrigger {
+  font-size: 14px;
+  padding: 0;
+}
+
+.btnTrigger.active {
+  color: var(--primary-color);
+}
+
+.commentList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+}
