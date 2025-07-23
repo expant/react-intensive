@@ -1,0 +1,12 @@
+.comment {
+  padding: 10px;
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+}
+
+.commentName {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--primary-color);
+}
