@@ -45,11 +45,3 @@
   width: 20px;
   fill: var(--icon-color);
 }
-
-.header {
-  color: var(--primary-color);
-}
-
-.footer {
-  text-align: right;
-}

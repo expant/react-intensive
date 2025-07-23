@@ -1,19 +1,12 @@
 import { createPortal } from "react-dom";
-import type { ReactNode } from "react";
 import { useTheme } from "@/shared/lib/theme/useTheme";
+import { ModalHeader } from "./ui/ModalHeader/ModalHeader";
+import { ModalBody } from "./ui/ModalBody/ModalBody";
+import { ModalFooter } from "./ui/ModalFooter/ModalFooter";
 import { Button } from "../Button/Button";
 import { CloseIcon } from "../icons/CloseIcon";
+import type { ModalProps } from "./model/types";
 import styles from "./Modal.module.css";
-
-type ModalProps = {
-  isOpen: boolean;
-  children?: ReactNode;
-  onClose: () => void;
-};
-
-type ModalSubcomponentProps = {
-  children: ReactNode;
-};
 
 export function Modal({ isOpen, onClose, children }: ModalProps) {
   const { theme } = useTheme();
@@ -37,14 +30,6 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
   );
 }
 
-Modal.Header = ({ children }: ModalSubcomponentProps) => {
-  return <header className={styles.header}>{children}</header>;
-};
-
-Modal.Body = ({ children }: ModalSubcomponentProps) => {
-  return <div className={styles.body}>{children}</div>;
-};
-
-Modal.Footer = ({ children }: ModalSubcomponentProps) => {
-  return <footer className={styles.footer}>{children}</footer>;
-};
+Modal.Header = ModalHeader;
+Modal.Body = ModalBody;
+Modal.Footer = ModalFooter;
