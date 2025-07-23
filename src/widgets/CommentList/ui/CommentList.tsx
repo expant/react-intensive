@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { mockComments } from "@/shared/mocks/comments";
 import { CommentCard } from "@/entities/comment/ui/CommentCard";
 import { Button } from "@/shared/ui/Button/Button";
@@ -13,15 +13,9 @@ export function CommentList({ postId }: CommentListProps) {
 
   const toggleComments = () => setIsExpanded(!isExpanded);
 
-  const commentList = useMemo(() => {
-    const filteredComments = mockComments.filter(
-      (comment) => comment.postId === postId
-    );
-
-    return filteredComments.map((comment) => (
-      <CommentCard comment={comment} key={comment.id} />
-    ));
-  }, [postId, mockComments]);
+  const filteredComments = mockComments.filter(
+    (comment) => comment.postId === postId
+  );
 
   return (
     <div className={styles.commentSection}>
@@ -32,9 +26,15 @@ export function CommentList({ postId }: CommentListProps) {
       >
         {isExpanded
           ? "Свернуть комментарии"
-          : `Показать комментарии (${commentList.length})`}
+          : `Показать комментарии (${filteredComments.length})`}
       </Button>
-      {isExpanded && <ul className={styles.commentList}>{commentList}</ul>}
+      {isExpanded && (
+        <ul className={styles.commentList}>
+          {filteredComments.map((comment) => (
+            <CommentCard comment={comment} key={comment.id} />
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
