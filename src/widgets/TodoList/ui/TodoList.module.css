@@ -8,25 +8,19 @@
   gap: 5px;
 }
 
-.todoItem {
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.activeContainer .todoItem {
+.active li {
   background-color: var(--secondary-color);
 }
 
-.activeContainer .todoItem:hover {
+.active li:hover {
   background-color: var(--button-hover);
 }
 
-.completedContainer .todoItem {
+.completed li {
   background-color: var(--green-light);
   color: var(--green-primary);
 }
 
-.completedContainer .todoItem:hover {
+.completed li:hover {
   color: var(--text-color);
 }

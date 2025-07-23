@@ -1,17 +1,17 @@
-import { useState } from "react";
-import { PostList } from "@/widgets/PostList/PostList";
 import { usePosts } from "@/features/PostList/model/hooks/usePosts";
+import { PostList } from "@/widgets/PostList/PostList";
 import { PostLengthFilter } from "@/features/PostLengthFilter/ui/PostLengthFilter";
-import type { LengthFilter } from "@/features/PostLengthFilter/types";
+import { withLoading } from "@/shared/lib/hoc/withLoading";
+
+const PostListWithLoading = withLoading(PostList);
 
 export function AllPostsPage() {
-  const [lengthFilter, setLengthFilter] = useState<LengthFilter>({});
-  const { posts } = usePosts({ lengthFilter });
+  const { titleLength, setTitleLength, posts, loading } = usePosts();
 
   return (
     <div>
-      <PostLengthFilter length={lengthFilter} onChange={setLengthFilter} />
-      <PostList posts={posts} />
+      <PostLengthFilter length={titleLength} onChange={setTitleLength} />
+      <PostListWithLoading loading={loading} posts={posts} />
     </div>
   );
 }

@@ -1,5 +1,5 @@
-import { useState, useMemo } from "react";
-import { mockComments } from "@/shared/mocks/comments";
+import { useComments } from "@/features/CommentList/model/hooks/useComments";
+import { CommentCard } from "@/entities/comment/ui/CommentCard";
 import { Button } from "@/shared/ui/Button/Button";
 import styles from "./CommentList.module.css";
 
@@ -8,22 +8,8 @@ type CommentListProps = {
 };
 
 export function CommentList({ postId }: CommentListProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const toggleComments = () => setIsExpanded(!isExpanded);
-
-  const comments = mockComments.filter((comment) => comment.postId === postId);
-
-  const commentList = useMemo(
-    () =>
-      comments.map((comment) => (
-        <li className={styles.commentItem} key={comment.id}>
-          <p className={styles.commentItemName}>{comment.name}</p>
-          <p className={styles.commentItemBody}>{comment.body}</p>
-        </li>
-      )),
-    [mockComments]
-  );
+  const { isExpanded, toggleComments, comments, commentsCount } =
+    useComments(postId);
 
   return (
     <div className={styles.commentSection}>
@@ -34,9 +20,15 @@ export function CommentList({ postId }: CommentListProps) {
       >
         {isExpanded
           ? "Свернуть комментарии"
-          : `Показать комментарии (${comments.length})`}
+          : `Показать комментарии (${commentsCount})`}
       </Button>
-      {isExpanded && <ul className={styles.commentList}>{commentList}</ul>}
+      {isExpanded && (
+        <ul className={styles.commentList}>
+          {comments.map((comment) => (
+            <CommentCard key={comment.id} comment={comment} />
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

@@ -1,24 +1,20 @@
-// import { withLoading } from "@/shared/lib/hoc/withLoading";
+import { PhotoCard } from "@/entities/photo/ui/PhotoCard";
+import type { Photo } from "@/entities/photo/model/types";
 import styles from "./AlbumPhotosList.module.css";
-
-type Photo = {
-  id: number;
-  title: string;
-  url: string;
-  thumbnailUrl: string;
-};
 
 type AlbumPhotosListProps = {
   photos: Photo[];
 };
 
 export function AlbumPhotosList({ photos }: AlbumPhotosListProps) {
+  if (!photos.length) {
+    return <div>Фотографий нет</div>;
+  }
+
   return (
     <ul className={styles.albumPhotosList}>
       {photos.map((photo) => (
-        <li key={photo.id} className={`${styles.photoItem}`}>
-          <img src={photo.url} alt={photo.title} />
-        </li>
+        <PhotoCard key={photo.id} photo={photo} />
       ))}
     </ul>
   );

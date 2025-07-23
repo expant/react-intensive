@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import type { PostCardProps } from "./types";
+import type { PostCardProps } from "../model/types";
 import styles from "./PostCard.module.css";
 
 export function PostCard({ post, children }: PostCardProps) {

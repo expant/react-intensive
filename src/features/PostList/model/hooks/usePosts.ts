@@ -1,21 +1,43 @@
+import { useEffect, useState } from "react";
 import { filterByLength } from "@/features/PostLengthFilter/lib/filterByLength";
 import { mockPosts } from "@/shared/mocks/posts";
 import { filterById } from "@/shared/lib/data/filterById";
 import type { LengthFilter } from "@/features/PostLengthFilter/types";
+import type { Post } from "@/entities/post/model/types";
 
-type usePostsProps = {
-  userId?: number;
-  lengthFilter?: LengthFilter;
-};
+export function usePosts(userId?: number) {
+  const [loading, setLoading] = useState(false);
+  const [titleLength, setTitleLength] = useState<LengthFilter>({});
+  const [posts, setPosts] = useState<Post[]>(mockPosts);
 
-export function usePosts({ userId, lengthFilter }: usePostsProps) {
-  const filteredByUser = userId
-    ? filterById(mockPosts, "userId", userId)
-    : [...mockPosts];
+  const filterPosts = () => {
+    let filtered = [...mockPosts];
 
-  const filteredByLength = lengthFilter
-    ? filterByLength({ posts: filteredByUser, ...lengthFilter })
-    : [...filteredByUser];
+    if (userId) filtered = filterById(posts, "userId", userId);
+    if (titleLength) {
+      const { min, max } = titleLength;
+      filtered = filterByLength(filtered, min, max);
+    }
 
-  return { posts: filteredByLength };
+    return filtered;
+  };
+
+  useEffect(() => {
+    setLoading(true);
+
+    const timer = setTimeout(() => {
+      const filtered = filterPosts();
+      setPosts(filtered);
+      setLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [titleLength]);
+
+  return {
+    titleLength,
+    setTitleLength,
+    posts,
+    loading,
+  };
 }

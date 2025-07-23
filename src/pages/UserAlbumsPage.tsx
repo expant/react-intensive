@@ -7,9 +7,5 @@ export function UserAlbumsPage() {
   const { id: userId } = useParams<{ id: string }>();
   const filteredAlbums = filterById(mockAlbums, "userId", Number(userId));
 
-  return (
-    <div>
-      <AlbumList albums={filteredAlbums} />
-    </div>
-  );
+  return <AlbumList albums={filteredAlbums} />;
 }
