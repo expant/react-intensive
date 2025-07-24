@@ -1,0 +1,26 @@
+.todosTitle {
+  margin: 20px 0;
+}
+
+.todosList {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.active li {
+  background-color: var(--secondary-color);
+}
+
+.active li:hover {
+  background-color: var(--button-hover);
+}
+
+.completed li {
+  background-color: var(--green-light);
+  color: var(--green-primary);
+}
+
+.completed li:hover {
+  color: var(--text-color);
+}

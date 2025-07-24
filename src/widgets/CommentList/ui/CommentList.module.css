@@ -1,0 +1,32 @@
+.commentSection {
+  margin-top: 30px;
+}
+
+.btnTrigger {
+  font-size: 14px;
+  padding: 0;
+}
+
+.btnTrigger.active {
+  color: var(--primary-color);
+}
+
+.commentList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.commentItem {
+  padding: 10px;
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+}
+
+.commentItemName {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--primary-color);
+}
