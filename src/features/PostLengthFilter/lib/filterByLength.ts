@@ -1,10 +1,4 @@
-type Post = {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-  author: string;
-};
+import type { Post } from "@/entities/post/model/types";
 
 export const filterByLength = (posts: Post[], min?: number, max?: number) =>
   posts.filter((post) => {

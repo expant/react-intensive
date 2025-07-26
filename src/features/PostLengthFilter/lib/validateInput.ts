@@ -1,6 +1,4 @@
-export type ValidateInputParams = {
-  value: string;
-};
+import type { ValidateInputParams } from "../model/types";
 
 export const validateInput = ({ value }: ValidateInputParams) => {
   if (!value) return { isValid: false, error: "empty" };

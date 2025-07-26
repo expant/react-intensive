@@ -1,30 +1,9 @@
-import type { ChangeEvent } from "react";
-import { validateInput } from "../lib/validateInput";
-import type { LengthFilter, LengthFilterType } from "../types";
+import { usePostLengthFilter } from "../model/hooks/usePostLengthFilter";
+import type { PostLengthFilterProps } from "../model/types";
 import styles from "./PostLengthFilter.module.css";
 
-export type PostLengthFilterProps = {
-  length: LengthFilter;
-  onChange: (length: LengthFilter) => void;
-};
-
-export function PostLengthFilter({ length, onChange }: PostLengthFilterProps) {
-  const handleChange =
-    (type: LengthFilterType) => (e: ChangeEvent<HTMLInputElement>) => {
-      const { value } = e.target;
-      const validation = validateInput({ value });
-
-      if (validation.isValid) {
-        onChange({ ...length, [type]: validation.validatedValue });
-        return;
-      }
-
-      if (validation.error === "empty") {
-        onChange({ ...length, [type]: undefined });
-      }
-    };
-
-  const handleValue = (type: LengthFilterType) => length[type] ?? "";
+export function PostLengthFilter(props: PostLengthFilterProps) {
+  const { handleChange, handleValue } = usePostLengthFilter(props);
 
   return (
     <div className={styles.filterContainer}>
