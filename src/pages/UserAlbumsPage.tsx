@@ -1,11 +1,15 @@
 import { useParams } from "react-router-dom";
+import { useGetAlbumsQuery } from "@/entities/album/api/albumsApi";
 import { AlbumList } from "@/widgets/AlbumList/AlbumList";
-import { mockAlbums } from "@/shared/mocks/albums";
+import { withLoading } from "@/shared/lib/hoc/withLoading";
 import { filterById } from "@/shared/lib/data/filterById";
+
+const AlbumListWithLoading = withLoading(AlbumList);
 
 export function UserAlbumsPage() {
   const { id: userId } = useParams<{ id: string }>();
-  const filteredAlbums = filterById(mockAlbums, "userId", Number(userId));
+  const { data: albums = [], isLoading } = useGetAlbumsQuery();
+  const filteredAlbums = filterById(albums, "userId", Number(userId));
 
-  return <AlbumList albums={filteredAlbums} />;
+  return <AlbumListWithLoading albums={filteredAlbums} loading={isLoading} />;
 }

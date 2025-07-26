@@ -1,21 +1,19 @@
-import { useState, useMemo } from "react";
-import { mockComments } from "@/shared/mocks/comments";
+import { useState } from "react";
+import { useGetCommentsQuery } from "@/entities/comment/api/commentsApi";
 import { filterById } from "@/shared/lib/data/filterById";
 
 export function useComments(postId: number) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { data: comments = [] } = useGetCommentsQuery();
 
   const toggleComments = () => setIsExpanded(!isExpanded);
 
-  const comments = useMemo(
-    () => filterById(mockComments, "postId", postId),
-    [postId]
-  );
+  const commentsByPost = filterById(comments, "postId", postId);
 
   return {
     isExpanded,
     toggleComments,
-    comments,
-    commentsCount: comments.length,
+    comments: commentsByPost,
+    commentsCount: commentsByPost.length,
   };
 }

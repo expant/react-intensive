@@ -1,43 +1,28 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import { filterByLength } from "@/features/PostLengthFilter/lib/filterByLength";
-import { mockPosts } from "@/shared/mocks/posts";
 import { filterById } from "@/shared/lib/data/filterById";
-import type { LengthFilter } from "@/features/PostLengthFilter/types";
-import type { Post } from "@/entities/post/model/types";
+import { useGetUsersQuery } from "@/entities/user/api/usersApi";
+import { useGetPostsQuery } from "@/entities/post/api/postsApi";
+import { selectAll } from "@/entities/post/model/slice/postSlice";
+import type { LengthFilter } from "@/features/PostLengthFilter/model/types";
 
 export function usePosts(userId?: number) {
-  const [loading, setLoading] = useState(false);
   const [titleLength, setTitleLength] = useState<LengthFilter>({});
-  const [posts, setPosts] = useState<Post[]>(mockPosts);
+  const allPosts = useSelector(selectAll);
+  const { isLoading } = useGetPostsQuery();
+  useGetUsersQuery();
 
-  const filterPosts = () => {
-    let filtered = [...mockPosts];
+  let posts = [...allPosts];
 
-    if (userId) filtered = filterById(posts, "userId", userId);
-    if (titleLength) {
-      const { min, max } = titleLength;
-      filtered = filterByLength(filtered, min, max);
-    }
+  if (userId) {
+    posts = filterById(posts, "userId", userId);
+  }
 
-    return filtered;
-  };
+  if (titleLength) {
+    const { min, max } = titleLength;
+    posts = filterByLength(posts, min, max);
+  }
 
-  useEffect(() => {
-    setLoading(true);
-
-    const timer = setTimeout(() => {
-      const filtered = filterPosts();
-      setPosts(filtered);
-      setLoading(false);
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, [titleLength]);
-
-  return {
-    titleLength,
-    setTitleLength,
-    posts,
-    loading,
-  };
+  return { titleLength, setTitleLength, loading: isLoading, posts };
 }
