@@ -5,7 +5,6 @@ export type Post = {
   id: number;
   title: string;
   body: string;
-  author: string;
 };
 
 export type PostCardProps = {
