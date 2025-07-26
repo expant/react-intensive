@@ -1,3 +1,7 @@
 .goBackBtn {
   margin-bottom: 20px;
 }
+
+.isLoading {
+  text-align: center;
+}

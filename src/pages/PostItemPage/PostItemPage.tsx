@@ -1,20 +1,20 @@
+import { useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
+import { selectPostById } from "@/entities/post/model/slice/postSlice";
 import { Button } from "@/shared/ui/Button/Button";
 import { PostCard } from "@/entities/post/ui/PostCard";
 import { CommentList } from "@/widgets/CommentList/ui/CommentList";
-import { mockPosts } from "@/shared/mocks/posts";
+import type { RootState } from "@/app/providers/store/model/types";
 import styles from "./PostItemPage.module.css";
 
 export function PostItemPage() {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const post = mockPosts.find((post) => post.id === Number(id));
+  const post = useSelector((state: RootState) =>
+    selectPostById(state, Number(id))
+  );
 
   const handleGoBack = () => navigate(-1);
-
-  if (!post) {
-    return <div>Пост не найден</div>;
-  }
 
   return (
     <div>

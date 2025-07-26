@@ -15,7 +15,7 @@
   color: var(--text-color);
 }
 
-.author {
+.username {
   position: absolute;
   right: 10px;
   top: 5px;
