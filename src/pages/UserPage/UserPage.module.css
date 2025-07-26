@@ -1,0 +1,17 @@
+.userPageHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.backToPostsBtn {
+  align-self: start;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.backToPostsBtn:hover {
+  background-color: var(--secondary-color);
+}

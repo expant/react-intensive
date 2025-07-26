@@ -1,0 +1,18 @@
+.userTabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.tab {
+  padding: 5px 10px;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.tab:hover,
+.active {
+  background-color: var(--button-hover);
+}
