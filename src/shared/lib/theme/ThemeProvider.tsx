@@ -1,12 +1,8 @@
-import { createContext, useState } from "react";
-import type { Theme, ThemeContextType, ThemeProviderProps } from "./types";
+import { useState } from "react";
+import { ThemeContext } from "./context";
+import type { Theme, ThemeProviderProps } from "./model/types";
 
 const DEFAULT_THEME: Theme = "light";
-
-export const ThemeContext = createContext<ThemeContextType>({
-  theme: DEFAULT_THEME,
-  toggleTheme: () => console.warn("Theme provider not initialized!"),
-});
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
   const [theme, setTheme] = useState(DEFAULT_THEME);

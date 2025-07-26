@@ -1,7 +1,7 @@
 import { DarkIcon } from "./icons/DarkIcon";
 import { LightIcon } from "./icons/LightIcon";
 import { Button } from "@/shared/ui/Button/Button";
-import { useTheme } from "@/shared/lib/theme/useTheme";
+import { useTheme } from "@/shared/lib/theme/model/hooks/useTheme";
 
 export function ThemeSwitcher() {
   const { theme, toggleTheme } = useTheme();

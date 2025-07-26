@@ -1,5 +1,5 @@
 import { createPortal } from "react-dom";
-import { useTheme } from "@/shared/lib/theme/useTheme";
+import { useTheme } from "@/shared/lib/theme/model/hooks/useTheme";
 import { ModalHeader } from "./ui/ModalHeader/ModalHeader";
 import { ModalBody } from "./ui/ModalBody/ModalBody";
 import { ModalFooter } from "./ui/ModalFooter/ModalFooter";

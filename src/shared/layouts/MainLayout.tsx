@@ -1,5 +1,5 @@
 import type { ReactElement, ReactNode } from "react";
-import { useTheme } from "../lib/theme/useTheme";
+import { useTheme } from "../lib/theme/model/hooks/useTheme";
 import styles from "./MainLayout.module.css";
 
 type MainLayoutProps = {
