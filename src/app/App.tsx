@@ -1,6 +1,6 @@
 import { RouterProvider } from "react-router-dom";
 import { router } from "./providers/router/router";
-import { MainLayout } from "@/shared/layouts/MainLayout";
+import { MainLayout } from "@/shared/layouts/MainLayout/MainLayout";
 import { ThemeProvider } from "@/shared/lib/theme/ThemeProvider";
 import { LayoutHeader } from "@/widgets/LayoutHeader/LayoutHeader";
 import { LayoutFooter } from "@/widgets/LayoutFooter/LayoutFooter";

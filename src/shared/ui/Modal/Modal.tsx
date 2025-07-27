@@ -1,4 +1,5 @@
 import { createPortal } from "react-dom";
+import type { PropsWithChildren } from "react";
 import { useTheme } from "@/shared/lib/theme/model/hooks/useTheme";
 import { ModalHeader } from "./ui/ModalHeader/ModalHeader";
 import { ModalBody } from "./ui/ModalBody/ModalBody";
@@ -8,7 +9,8 @@ import { CloseIcon } from "../icons/CloseIcon";
 import type { ModalProps } from "./model/types";
 import styles from "./Modal.module.css";
 
-export function Modal({ isOpen, onClose, children }: ModalProps) {
+export function Modal(props: PropsWithChildren<ModalProps>) {
+  const { isOpen, onClose, children } = props;
   const { theme } = useTheme();
   const modalRoot = document.querySelector("#modal-root");
 
