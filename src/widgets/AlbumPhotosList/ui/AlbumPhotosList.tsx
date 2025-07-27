@@ -1,10 +1,7 @@
+import { ItemList } from "@/shared/ui/ItemList/ItemList";
 import { PhotoCard } from "@/entities/photo/ui/PhotoCard";
-import type { Photo } from "@/entities/photo/model/types";
+import type { AlbumPhotosListProps } from "../model/types";
 import styles from "./AlbumPhotosList.module.css";
-
-type AlbumPhotosListProps = {
-  photos: Photo[];
-};
 
 export function AlbumPhotosList({ photos }: AlbumPhotosListProps) {
   if (!photos.length) {
@@ -12,10 +9,8 @@ export function AlbumPhotosList({ photos }: AlbumPhotosListProps) {
   }
 
   return (
-    <ul className={styles.albumPhotosList}>
-      {photos.map((photo) => (
-        <PhotoCard key={photo.id} photo={photo} />
-      ))}
-    </ul>
+    <ItemList items={photos} listClassName={styles.albumPhotosList}>
+      {(photo) => <PhotoCard key={photo.id} photo={photo} />}
+    </ItemList>
   );
 }

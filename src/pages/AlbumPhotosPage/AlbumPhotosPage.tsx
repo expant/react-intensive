@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useGetPhotosQuery } from "@/entities/photo/api/photosApi";
-import { AlbumPhotosList } from "@/widgets/AlbumPhotosList/AlbumPhotosList";
+import { AlbumPhotosList } from "@/widgets/AlbumPhotosList/ui/AlbumPhotosList";
 import { Button } from "@/shared/ui/Button/Button";
 import { filterById } from "@/shared/lib/data/filterById";
 import { withLoading } from "@/shared/lib/hoc/withLoading";

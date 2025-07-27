@@ -1,10 +1,7 @@
+import { ItemList } from "@/shared/ui/ItemList/ItemList";
 import { AlbumCard } from "@/entities/album/ui/AlbumCard";
-import type { Album } from "@/entities/album/model/types";
+import type { AlbumListProps } from "../model/types";
 import styles from "./AlbumList.module.css";
-
-type AlbumListProps = {
-  albums: Album[];
-};
 
 export function AlbumList({ albums }: AlbumListProps) {
   if (!albums.length) {
@@ -12,10 +9,8 @@ export function AlbumList({ albums }: AlbumListProps) {
   }
 
   return (
-    <ul className={styles.albumList}>
-      {albums.map((album) => (
-        <AlbumCard key={album.id} album={album} />
-      ))}
-    </ul>
+    <ItemList items={albums} listClassName={styles.albumList}>
+      {(album) => <AlbumCard key={album.id} album={album} />}
+    </ItemList>
   );
 }

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useGetAlbumsQuery } from "@/entities/album/api/albumsApi";
-import { AlbumList } from "@/widgets/AlbumList/AlbumList";
+import { AlbumList } from "@/widgets/AlbumList/ui/AlbumList";
 import { withLoading } from "@/shared/lib/hoc/withLoading";
 import { filterById } from "@/shared/lib/data/filterById";
 

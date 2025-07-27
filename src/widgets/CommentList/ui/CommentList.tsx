@@ -1,11 +1,9 @@
 import { useComments } from "@/features/CommentList/model/hooks/useComments";
+import { ItemList } from "@/shared/ui/ItemList/ItemList";
 import { CommentCard } from "@/entities/comment/ui/CommentCard";
 import { Button } from "@/shared/ui/Button/Button";
+import type { CommentListProps } from "../model/types";
 import styles from "./CommentList.module.css";
-
-type CommentListProps = {
-  postId: number;
-};
 
 export function CommentList({ postId }: CommentListProps) {
   const { isExpanded, toggleComments, comments, commentsCount } =
@@ -23,11 +21,9 @@ export function CommentList({ postId }: CommentListProps) {
           : `Показать комментарии (${commentsCount})`}
       </Button>
       {isExpanded && (
-        <ul className={styles.commentList}>
-          {comments.map((comment) => (
-            <CommentCard key={comment.id} comment={comment} />
-          ))}
-        </ul>
+        <ItemList items={comments} listClassName={styles.commentList}>
+          {(comment) => <CommentCard key={comment.id} comment={comment} />}
+        </ItemList>
       )}
     </div>
   );

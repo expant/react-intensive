@@ -1,3 +1,4 @@
+import { ItemList } from "@/shared/ui/ItemList/ItemList";
 import { Todo } from "@/entities/todo/ui/Todo";
 import type { TodoListProps } from "../model/types";
 import styles from "./TodoList.module.css";
@@ -8,11 +9,9 @@ export function TodoList({ todos, type }: TodoListProps) {
       <h3 className={styles.todosTitle}>
         {type === "active" ? "Активные" : "Выполенные"} ({todos.length})
       </h3>
-      <ul className={styles.todosList}>
-        {todos.map((todo) => (
-          <Todo key={todo.id} todo={todo} />
-        ))}
-      </ul>
+      <ItemList items={todos} listClassName={styles.todosList}>
+        {(todo) => <Todo todo={todo} />}
+      </ItemList>
     </div>
   );
 }

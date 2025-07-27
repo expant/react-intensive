@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { usePosts } from "@/features/PostList/model/hooks/usePosts";
 import { withLoading } from "@/shared/lib/hoc/withLoading";
-import { PostList } from "@/widgets/PostList/PostList";
+import { PostList } from "@/widgets/PostList/ui/PostList";
 import { PostLengthFilter } from "@/features/PostLengthFilter/ui/PostLengthFilter";
 
 const PostListWithLoading = withLoading(PostList);

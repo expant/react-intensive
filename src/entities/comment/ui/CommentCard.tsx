@@ -5,9 +5,9 @@ export function CommentCard({ comment }: CommentCardProps) {
   const { name, body } = comment;
 
   return (
-    <li className={styles.comment}>
+    <div className={styles.comment}>
       <p className={styles.commentName}>{name}</p>
       <p className={styles.commentBody}>{body}</p>
-    </li>
+    </div>
   );
 }
