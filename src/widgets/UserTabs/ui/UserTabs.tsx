@@ -1,10 +1,7 @@
 import { NavLink, useParams } from "react-router-dom";
 import { userTabItems } from "../model/constants";
+import type { ClassNameProps } from "../model/types";
 import styles from "./UserTabs.module.css";
-
-type ClassNameProps = {
-  isActive: boolean;
-};
 
 export function UserTabs() {
   const { id } = useParams<{ id: string }>();

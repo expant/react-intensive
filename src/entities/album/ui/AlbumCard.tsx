@@ -6,10 +6,10 @@ export function AlbumCard({ album }: AlbumCardProps) {
   const { id, title } = album;
 
   return (
-    <li>
+    <div>
       <Link to={`${id}/photos`} className={`${styles.albumItem}`}>
         {title}
       </Link>
-    </li>
+    </div>
   );
 }
