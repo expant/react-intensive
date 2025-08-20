@@ -1,0 +1,9 @@
+.footer {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.author {
+  font-size: 17px;
+  color: var(--text-color);
+}
